@@ -408,7 +408,7 @@ def home():
                     <input type="submit" value="Respond" class="button-style" />
                 </form>
                 <div class="canvas-container ">
-                    <canvas id="drawingCanvas" width="430" height="330"></canvas>
+                    <canvas id="drawingCanvas" width="500" height="330"></canvas>
                     <button id="backButton" class="tool-button" onclick="undoLastAction()">Back</button>
                 </div>
                 <div class>
@@ -568,7 +568,7 @@ def home():
                         <input type="submit" value="Generate" class="button-style" />
                     </form>
                     <!-- Inserting the new instruction text here -->
-                    <p style="color: blue; font-size: small; opacity: 70%;">After getting inspiration or choosing the image, <br> please continue to type your response to the question on the left.</p>
+                    //<p style="color: blue; font-size: small; opacity: 70%;">After getting inspiration or choosing the image, <br> please continue to type your response to the question on the left.</p>
                     <!-- Loading indicator placed right below the form -->
                     <div id="loading" style="display: none; text-align: center;">
                         <div class="spinner"></div>
