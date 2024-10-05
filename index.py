@@ -1,11 +1,12 @@
 # for kids
-from flask import Flask, request, jsonify, session, render_template_string
-from flask import Flask, request, make_response
+import os  # <-- Add this line
+
+from flask import Flask, request, jsonify, session, render_template_string, make_response
 import requests
 import base64
 import openai
 from io import BytesIO
-from PIL import Image 
+from PIL import Image
 
 app = Flask(__name__)
 
