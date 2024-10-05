@@ -590,5 +590,5 @@ def home():
     """, latest_question=latest_question, progress_value=progress_value)
 
 if __name__ == '__main__':
-    app.secret_key = os.environ.get('OPENAI_API_KEY')  # <-- Change this line: Replace os.environ['OPENAI_API_KEY'] with os.environ.get('OPENAI_API_KEY')
+    app.secret_key = os.environ.get('OPENAI_API_KEY', 'default_secret_key')
     app.run(host='0.0.0.0', port=int(os.environ.get("PORT", 5000)))
