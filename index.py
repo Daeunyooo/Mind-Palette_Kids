@@ -123,12 +123,12 @@ predefined_sentences = {
 def generate_art_therapy_question(api_key, question_number, session_history):
     openai.api_key = api_key
     question_prompts = [
-        "Generate a question to ask users about their current emotion. Users are kids, so please use easy and friendly expressions.",
-        "Based on the previous responses, generate a question for identifying and describing the emotion, such as asking about the intensity of the emotion or where in the body it is felt the most. Users are kids, so please use easy and friendly expressions.",
-        "Based on the previous responses, generate a question that explores the context, such as asking what triggered this emotion or describing the situation or thought that led to these feelings. Users are kids, so please use easy and friendly expressions.",
-        "Based on the previous responses, generate a question that asks the user to describe and visualize their emotion as an 'abstract shape or symbol' to create their own metaphor for their mind. Users are kids, so please use easy and friendly expressions, and provide some metaphors or examples.",
-        "Based on the previous responses, generate a question that asks the user to describe and visualize their emotions as a 'texture' to create their own metaphor for their mind. Users are kids, so please use easy and friendly expressions, and provide some metaphors or examples.",
-        "Based on the previous responses, generate a short summary for kids using easy and friendly expressions. Also, provide brief advice to help the kids easily reappraise their emotions or practice cognitive defusion in ACT in a fun way."
+        "Generate a question to ask user (children) about their current emotion. Please use easy and friendly expressions.",
+        "Based on the previous responses, generate a short question for identifying and describing the emotion, such as asking about the intensity of the emotion or where in the body it is felt the most. Users are kids, so please use easy and friendly expressions.",
+        "Based on the previous responses, generate a short question that explores the context, such as asking what triggered this emotion or describing the situation or thought that led to these feelings. Users are kids, so please use easy and friendly expressions.",
+        "Based on the previous responses, generate a short question that asks the user to describe and visualize their emotion as an 'abstract shape or symbol' to create their own metaphor for their mind. Users are kids, so please use easy and friendly expressions, and provide some metaphors or examples.",
+        "Based on the previous responses, generate a short question that asks the user to describe and visualize their emotions as a 'texture' to create their own metaphor for their mind. Users are kids, so please use easy and friendly expressions, and provide some metaphors or examples.",
+        "Based on the previous responses, generate a short, easy-to-understand summary for kids. Use friendly language that reflects the emotions they expressed. Then, provide personalized advice to help them reappraise their emotions or practice cognitive defusion, incorporating a playful and engaging approach consistent with ACT theory. Make sure the advice is directly relevant to the emotions and thoughts shared by the child, using examples or activities that are fun and easy for kids to understand. Also, make this less than three sentences."
     ]
 
     user_responses = " ".join([resp for who, resp in session_history if who == 'You'])
@@ -563,7 +563,7 @@ def home():
                 <div class="right">
                     <h1>Visual Metaphor</h1>
                     <form onsubmit="return generateImage(event);">
-                        <label for="description">I'm here to help you express your emotions. <br> From Question 3, please <strong>describe what you drew</strong> on the canvas below. <br> You can continue your drawing or choose an image to draw on.</label><br>
+                        <label for="description">I'm here to help you express your emotions. <br> Please describe what you drew on the canvas! <br> </label><br>
                         <input type="text" id="description" autocomplete="off" style="width: 400px; padding: 5px; margin-top: 10px;" placeholder="Describe your drawing..." />
                         <input type="submit" value="Generate" class="button-style" />
                     </form>
