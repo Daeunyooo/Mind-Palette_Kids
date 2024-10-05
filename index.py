@@ -123,7 +123,7 @@ predefined_sentences = {
 def generate_art_therapy_question(api_key, question_number, session_history):
     openai.api_key = api_key
     question_prompts = [
-        "Generate a question to ask user (children) about their current emotion. Please use easy and friendly expressions.",
+        "Generate a question to ask user (children) about their current emotion. Do not use 'kiddo'",
         "Based on the previous responses, generate a short question for identifying and describing the emotion, such as asking about the intensity of the emotion or where in the body it is felt the most. Users are kids, so please use easy and friendly expressions.",
         "Based on the previous responses, generate a short question that explores the context, such as asking what triggered this emotion or describing the situation or thought that led to these feelings. Users are kids, so please use easy and friendly expressions.",
         "Based on the previous responses, generate a short question that asks the user to describe and visualize their emotion as an 'abstract shape or symbol' to create their own metaphor for their mind. Users are kids, so please use easy and friendly expressions, and provide some metaphors or examples.",
@@ -567,8 +567,6 @@ def home():
                         <input type="text" id="description" autocomplete="off" style="width: 400px; padding: 5px; margin-top: 10px;" placeholder="Describe your drawing..." />
                         <input type="submit" value="Generate" class="button-style" />
                     </form>
-                    <!-- Inserting the new instruction text here -->
-                    //<p style="color: blue; font-size: small; opacity: 70%;">After getting inspiration or choosing the image, <br> please continue to type your response to the question on the left.</p>
                     <!-- Loading indicator placed right below the form -->
                     <div id="loading" style="display: none; text-align: center;">
                         <div class="spinner"></div>
