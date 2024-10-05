@@ -1,4 +1,4 @@
-# Version B
+# for kids
 from flask import Flask, request, jsonify, session, render_template_string
 from flask import Flask, request, make_response
 import requests
@@ -85,7 +85,7 @@ def api_process_drawing():
         raw_colors_hex = {f"#{r:02x}{g:02x}{b:02x}" for r, g, b in raw_colors}
         used_colors_names = [BRUSH_COLORS[hex_color] for hex_color in raw_colors_hex if hex_color in BRUSH_COLORS]
         prompt = generate_prompt(text_description, used_colors_names)
-        image_urls = call_dalle_api(prompt, n=4)
+        image_urls = call_dalle_api(prompt, n=2)
         return jsonify({'image_urls': image_urls})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
@@ -100,10 +100,10 @@ def generate_prompt(description, colors=None):
     return prompt
 
 
-def call_dalle_api(prompt, n=4):
+def call_dalle_api(prompt, n=2):
     api_key = app.secret_key
     headers = {"Authorization": f"Bearer {api_key}"}
-    payload = {"prompt": prompt, "n": n, "size": "512x512"}
+    payload = {"prompt": prompt, "n": n, "size": "200x200"}
     response = requests.post("https://api.openai.com/v1/images/generations", json=payload, headers=headers)
     if response.status_code == 200:
         images = response.json()['data']
@@ -177,7 +177,7 @@ def home():
     return render_template_string("""
     <html>
         <head>
-            <title>Mind Palette (B)</title>
+            <title>Mind Palette* (B)</title>
             <style>
                 body {
                     font-family: 'Helvetica', sans-serif;
@@ -404,7 +404,7 @@ def home():
         <body>
             <div class="container">
                 <div class="left">
-                <h1>Mind Palette (B)</h1>
+                <h1>Mind Palette* (B)</h1>
                 <div id="question">{{ latest_question }}</div>
                 <progress value="{{ progress_value }}" max="100"></progress>  <!-- Progress bar here -->
                 <form onsubmit="return sendResponse();">
