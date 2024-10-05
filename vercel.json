@@ -1,16 +1,10 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "./index.py",
-            "use": "@vercel/python"
-        }
-    ],
     "functions": {
-        "index.py": {
+        "api/*.py": {
+            "runtime": "vercel-python@0.5.4",
             "memory": 1024,
-            "maxDuration": 10,
-            "runtime": "python3.9"
+            "maxDuration": 60
         }
     },
     "routes": [
