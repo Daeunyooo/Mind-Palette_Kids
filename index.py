@@ -95,9 +95,9 @@ def api_process_drawing():
 def generate_prompt(description, colors=None):
     if colors:
         color_description = ', '.join(colors)
-        prompt = f"Create two abstract images using the colors {color_description} and inspired by the theme '{description}'."
+        prompt = f"Create two abstract drawings that look like they were made by children using the colors {color_description} and inspired by the theme '{description}'."
     else:
-        prompt = f"Create two abstract images inspired by the theme '{description}'."
+        prompt = f"Create two abstract drawings that look like they were made by children inspired by the theme '{description}'."
     return prompt
 
 
@@ -123,12 +123,12 @@ predefined_sentences = {
 def generate_art_therapy_question(api_key, question_number, session_history):
     openai.api_key = api_key
     question_prompts = [
-        "Generate a question to ask users about their current emotion.",
-        "Based on the previous responses, generate a question for identifying and describing the emotion, such as asking about the intensity of the emotion or where in the body it is felt the most.",
-        "Based on the previous responses, generate a question that explores the context, such as asking what triggered this emotion or describing the situation or thought that led to these feelings.",
-        "Based on the previous responses, generate a question that asks the user to describe and visualize their emotion as an 'abstract shape or symbol' to create their own metaphor for their mind.",
-        "Based on the previous responses, generate a question that asks the user to describe and visualize their emotions as a 'texture' to create their own metaphor for their mind.",
-        "Based on the previous responses, generate one sentence summary in a friendly tone without any interpretation. Also, provide very brief advice to help the user objectively interpret their emotions, treating 'thoughts' as just 'thoughts,' in a short sentence. Do not use labeling in front of each sentence."
+        "Generate a question to ask users about their current emotion. Users are kids, so please use easy and friendly expressions.",
+        "Based on the previous responses, generate a question for identifying and describing the emotion, such as asking about the intensity of the emotion or where in the body it is felt the most. Users are kids, so please use easy and friendly expressions.",
+        "Based on the previous responses, generate a question that explores the context, such as asking what triggered this emotion or describing the situation or thought that led to these feelings. Users are kids, so please use easy and friendly expressions.",
+        "Based on the previous responses, generate a question that asks the user to describe and visualize their emotion as an 'abstract shape or symbol' to create their own metaphor for their mind. Users are kids, so please use easy and friendly expressions, and provide some metaphors or examples.",
+        "Based on the previous responses, generate a question that asks the user to describe and visualize their emotions as a 'texture' to create their own metaphor for their mind. Users are kids, so please use easy and friendly expressions, and provide some metaphors or examples.",
+        "Based on the previous responses, generate a short summary for kids using easy and friendly expressions. Also, provide brief advice to help the kids easily reappraise their emotions or practice cognitive defusion in ACT in a fun way."
     ]
 
     user_responses = " ".join([resp for who, resp in session_history if who == 'You'])
